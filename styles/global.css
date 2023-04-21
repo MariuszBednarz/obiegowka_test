@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #FF6939;
+}
+
+main {
+  display: flex;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: auto;
+  overflow: hidden;
+
+}
+.left {
+  overflow: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  max-width: 45%;
+  min-width: 360px;
+  height: 100vh;
+  padding: 32px;
+}
+.right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 55%;
+  height: 100vh;
+}
+
+.title {
+    font-size: 24px;
+    color: #190F27;
+    font-weight: bold;
+    margin-bottom: 16px;
+    margin-top: 88px;
+}
+
+.subtitle {
+    color: #64606A;
+    font-size: 18px;
+}
+
+.notification {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top:0;
+  height: 40px;
+  width: 100%;
+  max-width: 528px;
+  opacity: 0;
+  line-height: 40px;
+  text-align: center;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  transition: 0.3s ease-in-out;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #fff;
+}
+
+.notification a {
+  display: none;
+}
+
+.success {
+  color: #284642;
+  background-color: #cfdbd9;
+
+}
+.success::before{
+  position: absolute;
+  left: -50%;
+  content: "";
+  display: block;
+  background-color: #cfdbd9;
+  width: 50%;
+  height: 40px;
+}
+
+.format, .failed {
+  color: #ce0737;
+  background-color: #F0EEED;
+
+}
+
+.format::before, .failed::before{
+  position: absolute;
+  left: -50%;
+  content: "";
+  display: block;
+  background-color: #F0EEED;
+  width: 50%;
+  height: 40px;
+}
+
+.show {
+  opacity: 1;
+}
+.show a {
+  display: inline;
+}
+
+.lineWrapper {
+  height: 23px;
+  position: relative;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+.lineWrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  background-color: #edebf0;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  main {
+    display: flex;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+  .right {
+    max-width: 100%;
+    max-height: 250px;
+    height: 50vh;
+    align-items: start;
+    justify-content: start;
+  }
+  .left {
+    max-width: 100%;
+    min-width: 303px;
+    max-height: 50%;
+    height: 100%;
+  }
+  .nameForm {
+    flex-direction: column;
+    gap: 0;
+  }
+  .notification {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .txt > img {
+    margin: 32px;
+    height: 150px;
+  }
+}
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-in</title>
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <main>
+      <div class="left">
+        <div class="register">
+          <div class="notification success" id="success"> Rejestracja zakończona sukcesem! </div>
+          <div class="notification failed" id="failed"> Coś poszło nie tak :( </div>
+          <p>Zarejestruj się</p>
+          <button>
+            <img src="./images/fb.png" />rejestracja przez Facebook
+          </button>
+          <button>
+            <img src="./images/insta.png" />rejestracja przez Instagram
+          </button>
+          <div class="lineWrapper first">
+            <div class="line"></div>
+            <p>Lub za pomocą maila</p>
+          </div>
+          <form id="form">
+            <div class="nameForm">
+              <div class="textInput">
+                <label class="label" for="">First Name</label>
+                <input id="firstName" type="text" placeholder="First Name" />
+                <div id="firstNameError" class="validationError">
+                  Imię musi mieć 2-20 liter, pierwsza powinna być wielka
+                </div>
+              </div>
+              <div class="textInput">
+                <label class="label" for="">Last Name</label>
+                <input id="lastName" type="text" placeholder="Last Name" />
+                <div id="lastNameError" class="validationError">
+                  Nazwisko musi mieć 2-30 liter, pierwsza powinna być wielka
+                </div>
+              </div>
+            </div>
+            <div class="textInput">
+              <label class="label" for="">e-mail</label>
+              <input id="email" type="text" placeholder="e-mail" />
+              <div id="emailError" class="validationError">
+                To nie jest poprawny format adresu e-mail
+              </div>
+            </div>
+            <div class="textInput">
+              <label class="label" for="">Password</label>
+              <input id="password" type="password" placeholder="password" />
+              <div id="passwordError" class="validationError">
+                Hasło musi mieć co najmniej 8 znaków, małą i wielką literę,
+                cyfrę i znak specjalny
+              </div>
+            </div>
+            <div class="bottomWrapper">
+              <div class="checkboxInput">
+                <input type="checkbox" name="" id="terms" class="terms" />
+                <label for="terms"
+                  >I have read the <a href="#">Terms & Conditions</a></label
+                >
+              </div>
+              <div id="termsError" class="validationError">
+                Musisz zaakceptować warunki serwisu
+              </div>
+              <button class="submit" type="submit">
+                Zarejestruj się za darmo
+              </button>
+            </div>
+          </form>
+          <div class="lineWrapper second">
+            <div class="line"></div>
+          </div>
+          <div class="login">Masz już konto? <a href="login.html">zaloguj się</a></div>
+        </div>
+      </div>
+      <div class="right">
+        <div class="bgi"></div>
+        <div class="txt">
+          <img src="./images/paper.png" alt="" />
+        </div>
+      </div>
+    </main>
+    <script src="register.js"></script>
+  </body>
+</html>

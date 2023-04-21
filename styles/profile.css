@@ -1,0 +1,122 @@
+
+button {
+  cursor: pointer;
+}
+
+.bgi {
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/image69.png");
+  background-size: cover;
+}
+
+.txt {
+  position: absolute;
+  z-index: 3;
+}
+
+.login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 528px;
+  font-size: 24px;
+}
+
+.login > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background-color: white;
+  border: 2px solid #284642;
+  border-radius: 7px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.login > button > img {
+  padding-right: 20px;
+}
+
+.first {
+  margin-top: 16px;
+  margin-bottom: 36px;
+}
+.second{
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+.lineWrapper > p {
+  display: block;
+  position: absolute;
+  left: 50%;
+  line-height: 23px;
+  transform: translate(-50%);
+  background-color: white;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+a {
+  color: #64606a;
+  text-decoration: none;
+  border-bottom: 3px solid #284642;
+  font-size: 14px;
+}
+.register {
+  color: #64606a;
+  font-size: 14px;
+}
+
+.error {
+  border: 1px solid #CE0737 !important;
+}
+
+.validationError {
+  display: none;
+  color: #CE0737;
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.visible {
+  display: block;
+}
+
+#innerContent {
+  margin: 20px 0;
+}
+
+#innerContent li {
+    color: #64606A;
+    font-size: 18px;
+}
+
+#userContent p {
+  margin: 24px 0;
+}
+
+.logout {
+  color: #64606a;
+  text-decoration: none;
+  border-bottom: 3px solid #284642;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .lineWrapper > p {
+    font-size: 10px;
+  }
+  a {
+    font-size: 12px;
+  }
+  label[for="rememberCheckbox"] {
+    font-size: 12px;
+  }
+  .register > button{
+    font-size: 12px;
+  }
+}
