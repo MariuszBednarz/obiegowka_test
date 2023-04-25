@@ -3,7 +3,7 @@ const BASE_URL = "https://ds-elp2-be.herokuapp.com/";
 
 const userContent = document.getElementById("userContent");
 const innerContent = document.getElementById("innerContent");
-const logoutButton = document.querySelector(".logout")
+const logoutButton = document.querySelector(".logout");
 
 if (!access_token) {
   userContent.innerHTML = `<h3> Coś poszło nie tak.</h3> <p>Taki użytkownik nie istnieje, lub wystąpił błąd podczas logowania. Spróbuj ponownie później</p> <a href="login.html">Wróć do strony logowania</a>
@@ -30,11 +30,26 @@ async function getUser() {
   }
 }
 
-logoutButton.addEventListener("click",()=>{
+logoutButton.addEventListener("click", () => {
   logout();
-})
+});
 
 function logout() {
-  localStorage.setItem("access_token", "");
+  localStorage.removeItem("access_token");
+  localStorage.removeItem("remember_user");
   window.location.href = "login.html";
 }
+
+const remember = Number(localStorage.getItem("remember_user"));
+
+const rememberFlag = Boolean(remember)
+
+window.addEventListener("beforeunload", function (event) {
+  console.log(remember,rememberFlag)
+  if (rememberFlag) {
+    return;
+  } else {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("remember_user");
+  }
+});

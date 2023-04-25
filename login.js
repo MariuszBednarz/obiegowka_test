@@ -3,6 +3,10 @@ const BASE_URL = "https://ds-elp2-be.herokuapp.com/"
 const form = document.getElementById("form");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
+const remember = document.querySelector("#rememberCheckbox")
+
+const main = document.querySelector("main");
+const popup = document.querySelector("#popup");
 
 const success = document.getElementById("success");
 const failed = document.getElementById("failed");
@@ -31,24 +35,41 @@ async function login(data) {
     })
     const result = await response.json();
     if (result.message == "Unauthorized"){
-      failed.classList.add("show");
-      setTimeout(() => {
-        failed.classList.remove("show");
-      }, 3000);
+      handleFailure();
     } else {
-      localStorage.setItem('access_token', result.access_token);
-      success.classList.add("show");
-      setTimeout(() => {
-        success.classList.remove("show");
-        window.location.href = "profile.html";
-      }, 3000);
+      handleSuccess(result);
     }
   } catch (error) {
     console.log(error);
   }
 }
 
+const handleSuccess = function (result) {
+  main.classList.add("blur");
+  popup.classList.add("showPopup");
+  setTimeout(() => {
+    main.classList.remove("blur");
+    popup.classList.remove("showPopup");
+    localStorage.setItem('access_token', result.access_token);
+      success.classList.add("show");
+      setTimeout(() => {
+        success.classList.remove("show");
+        if(remember.checked){
+          localStorage.setItem("remember_user", 1);
+        }else {
+          localStorage.setItem("remember_user", 0);
+        }
+        window.location.href = "profile.html";
+      }, 1500);
+  }, 1500)
+}
 
+const handleFailure = function () {
+  failed.classList.add("show");
+  setTimeout(() => {
+    failed.classList.remove("show");
+  }, 1500);
+}
 
 function validateRegisterForm() {
   let proceed = {

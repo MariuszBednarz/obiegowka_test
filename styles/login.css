@@ -10,11 +10,6 @@ button {
   background-size: cover;
 }
 
-.txt {
-  position: absolute;
-  z-index: 3;
-}
-
 .login {
   position: relative;
   width: 100%;
@@ -50,44 +45,6 @@ button {
 
 .login button:nth-of-type(2){
   margin-bottom: 32px;
-}
-
-.lineWrapper > p {
-  display: block;
-  position: absolute;
-  left: 50%;
-  line-height: 23px;
-  transform: translate(-50%);
-  background-color: white;
-  margin: 0 auto;
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.textInput {
-  margin-top: 26px;
-  position: relative;
-  width: 100%;
-}
-.textInput > input {
-  width: 100%;
-  height: 56px;
-  border: 1px solid #edebf0;
-  border-radius: 7px;
-  padding-left: 20px;
-  font-size: 16px;
-}
-
-.label {
-  position: absolute;
-  padding: 0 2px;
-  height: 20px;
-  left: 6px;
-  top: -10px;
-  font-size: 10px;
-  line-height: 20px;
-  background-color: white;
-  color: #64606a;
 }
 
 .submit {
@@ -155,25 +112,11 @@ a {
   font-size: 14px;
 }
 
-.error {
-  border: 1px solid #CE0737 !important;
-}
-
-.validationError {
-  display: none;
-  color: #CE0737;
-  font-size: 10px;
-  margin-top: 10px;
-}
-
-.visible {
+.inline {
   display: inline;
 }
 
 @media (max-width: 600px) {
-  .lineWrapper > p {
-    font-size: 10px;
-  }
   a {
     font-size: 12px;
   }

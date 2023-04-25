@@ -1,21 +1,35 @@
 const form = document.getElementById("form");
 
+const success = document.getElementById("success");
+
+const main = document.querySelector("main");
+const popup = document.querySelector("#popup");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (validateRegisterForm()) {
-    console.log("request");
-    const success = document.getElementById("success");
-    success.classList.add("show");
+
+    //recovery request
+
+    main.classList.add("blur");
+    popup.classList.add("showPopup");
     setTimeout(() => {
-      success.classList.remove("show");
-    }, 2000);
+      main.classList.remove("blur");
+      popup.classList.remove("showPopup");
+      success.classList.add("show");
+      setTimeout(() => {
+        success.classList.remove("show");
+      }, 1500);
+    }, 1500)
+
+
   } else {
     console.log("no request");
     const format = document.getElementById("format");
     format.classList.add("show");
     setTimeout(() => {
       format.classList.remove("show");
-    }, 2000);
+    }, 1500);
   }
 });
 

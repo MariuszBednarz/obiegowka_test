@@ -15,10 +15,10 @@
           <div class="notification success" id="success"> Rejestracja zakończona sukcesem! </div>
           <div class="notification failed" id="failed"> Coś poszło nie tak :( </div>
           <p>Zarejestruj się</p>
-          <button>
+          <button class="tooltip">
             <img src="./images/fb.png" />rejestracja przez Facebook
           </button>
-          <button>
+          <button class="tooltip">
             <img src="./images/insta.png" />rejestracja przez Instagram
           </button>
           <div class="lineWrapper first">
@@ -85,6 +85,9 @@
         </div>
       </div>
     </main>
+    <div id="popup" class="popup">
+      <span class="loader"></span>
+    </div>
     <script src="register.js"></script>
   </body>
 </html>
