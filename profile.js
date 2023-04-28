@@ -45,7 +45,6 @@ const remember = Number(localStorage.getItem("remember_user"));
 const rememberFlag = Boolean(remember)
 
 window.addEventListener("beforeunload", function (event) {
-  console.log(remember,rememberFlag)
   if (rememberFlag) {
     return;
   } else {

@@ -21,8 +21,8 @@ form.addEventListener("submit", (e) => {
     }
     login(data);
   } else {
-    console.log("no request");
-  }
+return  
+}
 });
 
 async function login(data) {
@@ -105,7 +105,6 @@ function validateRegisterForm() {
 
   function shouldProceed(obj) {
     for (let key in obj) {
-      console.log(obj[key]);
       if (!obj[key]) {
         return false;
       }

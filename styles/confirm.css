@@ -10,23 +10,23 @@ button {
 }
 
 .confirm {
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 528px;
   font-size: 24px;
 }
 
 .submit {
-  width: 100%;
-  height: 50px;
-  background-color: #ff6939;
-  color: #190f27;
   border: none;
   border-radius: 7px;
   margin-top: 26px;
+  width: 100%;
+  height: 50px;
+  background-color: #ff6939;
   font-size: 18px;
   font-weight: bold;
+  color: #190f27;
 }
 .checkboxInput {
   display: flex;
@@ -39,49 +39,46 @@ button {
 }
 
 label[for="terms"] {
-  display: inline-block;
   position: relative;
+  display: inline-block;
   margin-right: 10px;
-  cursor: pointer;
-  user-select: none;
   padding-left: 30px;
+  user-select: none;
+  cursor: pointer;
   font-size: 14px;
   color: #64606a;
 }
 
 label[for="terms"]::before {
   content: "";
-  display: inline-block;
   position: absolute;
   left: 0;
   top: 50%;
+  display: inline-block;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
   border: 2px solid #aaa;
   border-radius: 3px;
+  width: 20px;
+  height: 20px;
 }
 
 input[type="checkbox"]:checked + label[for="terms"]::before {
   content: "\2713";
-  color: #fff;
   background-color: #284642;
   text-align: center;
   font-size: 16px;
   line-height: 20px;
+  color: #fff;
 }
 
 a.link {
-  color: #64606a;
-  text-decoration: none;
   border-bottom: 3px solid #284642;
+  text-decoration: none;
   font-size: 14px;
+  color: #64606a;
 }
 .login {
   margin-top: 24px;
-  color: #64606a;
   font-size: 14px;
+  color: #64606a;
 }
-
-
-

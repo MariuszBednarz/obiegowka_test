@@ -1,7 +1,5 @@
 const subtitle = document.querySelector(".subtitle");
-
 const submit = document.querySelector(".submit");
-
 const email = localStorage.getItem("registered_email");
 
 const sendEmail = () => {

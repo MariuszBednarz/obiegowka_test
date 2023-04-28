@@ -24,7 +24,6 @@ form.addEventListener("submit", (e) => {
     };
     register(data);
     localStorage.setItem("registered_email", email.value);
-    console.log("request", data);
   } else {
     console.log("no request - validation error");
   }
@@ -100,7 +99,6 @@ function validateRegisterForm() {
 
   function shouldProceed(obj) {
     for (let key in obj) {
-      console.log(obj[key]);
       if (!obj[key]) {
         return false;
       }
@@ -118,7 +116,6 @@ async function register(data) {
       body: JSON.stringify(data),
     });
     const result = await response.json();
-    console.log(result);
     handleSuccess();
   } catch (error) {
     handleFailure();

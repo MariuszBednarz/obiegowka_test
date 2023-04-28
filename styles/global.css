@@ -18,11 +18,11 @@
 
 main {
   display: flex;
+  overflow: hidden;
+  transition: 0.2s;
   max-width: 1920px;
   margin: 0 auto;
   height: auto;
-  overflow: hidden;
-  transition: 0.2s;
 }
 
 .right {
@@ -41,11 +41,11 @@ main {
 }
 
 .left {
-  overflow: auto;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
   width: 100%;
   max-width: 45%;
   min-width: 360px;
@@ -54,52 +54,52 @@ main {
 }
 
 .title {
-  font-size: 24px;
-  color: #190f27;
-  font-weight: bold;
   margin-bottom: 16px;
   margin-top: 88px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #190f27;
 }
 
 .subtitle {
-  color: #64606a;
   font-size: 18px;
+  color: #64606a;
 }
 
-.tooltip{
+.tooltip {
   position: relative;
 }
 
-.tooltip::before{
-  position: absolute;
+.tooltip::before {
   content: "";
+  position: absolute;
   top: -5px;
   left: 0px;
+  opacity: 0;
+  transition: 0.3s;
+  border-right: 20px solid #ff6939;
+  border-bottom: 20px solid rgba(0, 0, 0, 0);
   width: 0;
   height: 0;
+}
+
+.tooltip::after {
+  content: "Opcja niedostępna";
+  position: absolute;
+  top: -45px;
+  left: -10px;
   opacity: 0;
-  border-right: 20px solid #FF6939;
-  border-bottom: 20px solid rgba(0, 0, 0, 0);
-  transition: .3s;
-
+  transition: 0.3s;
+  border-radius: 7px;
+  width: 150px;
+  height: 40px;
+  background-color: #ff6939;
+  line-height: 40px;
+  color: #190f27;
 }
 
-.tooltip::after{
-position: absolute;
-content: "Opcja niedostępna";
-top: -45px;
-left: -10px;
-opacity: 0;
-width: 150px;
-height: 40px;
-border-radius: 7px;
-background-color: #FF6939;
-color: #190F27;
-line-height: 40px;
-transition: .3s;
-}
-
-.tooltip:hover::after, .tooltip:hover::before{
+.tooltip:hover::after,
+.tooltip:hover::before {
   opacity: 1;
 }
 
@@ -113,18 +113,18 @@ transition: .3s;
   left: 0;
   right: 0;
   top: 0;
-  height: 40px;
-  width: 100%;
-  max-width: 528px;
   opacity: 0;
-  line-height: 40px;
-  text-align: center;
+  transition: 0.3s ease-in-out;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
-  transition: 0.3s ease-in-out;
+  width: 100%;
+  max-width: 528px;
+  height: 40px;
+  background-color: #fff;
+  line-height: 40px;
+  text-align: center;
   font-size: 14px;
   font-weight: 500;
-  background-color: #fff;
 }
 
 .notification a {
@@ -132,68 +132,68 @@ transition: .3s;
 }
 
 .success {
-  color: #284642;
   background-color: #cfdbd9;
+  color: #284642;
 }
 .success::before {
+  content: "";
   position: absolute;
   left: -50%;
-  content: "";
   display: block;
-  background-color: #cfdbd9;
   width: 50%;
   height: 40px;
+  background-color: #cfdbd9;
 }
 
 .format,
 .failed {
-  color: #ce0737;
   background-color: #f0eeed;
+  color: #ce0737;
 }
 
 .format::before,
 .failed::before {
+  content: "";
   position: absolute;
   left: -50%;
-  content: "";
   display: block;
-  background-color: #f0eeed;
   width: 50%;
   height: 40px;
+  background-color: #f0eeed;
 }
 
 .lineWrapper {
-  height: 23px;
   position: relative;
   margin-top: 12px;
   margin-bottom: 16px;
+  height: 23px;
 }
 .lineWrapper::before {
   content: "";
   position: absolute;
   top: 50%;
+  width: 100%;
   height: 1px;
   background-color: #edebf0;
-  width: 100%;
 }
 
 .lineWrapper > p {
-  display: block;
   position: absolute;
   left: 50%;
-  line-height: 23px;
+  display: block;
   transform: translate(-50%);
-  background-color: white;
   margin: 0 auto;
+  background-color: white;
+  line-height: 23px;
   font-size: 16px;
   font-weight: 400;
 }
 
 .validationError {
   display: none;
-  color: #ce0737;
   font-size: 10px;
   margin-top: 10px;
+  color: #ce0737;
 }
 
 .visible {
@@ -208,44 +208,43 @@ transition: .3s;
 }
 
 .textInput {
-  margin-top: 26px;
   position: relative;
+  margin-top: 26px;
   width: 100%;
 }
 .textInput > input {
-  width: 100%;
-  height: 56px;
   border: 1px solid #edebf0;
   border-radius: 7px;
+  width: 100%;
+  height: 56px;
   padding-left: 20px;
   font-size: 16px;
 }
 
 .textInput .error {
-  border: 1px solid #ce0737 !important;
+  border: 1px solid #ce0737;
 }
 
 .label {
   position: absolute;
-  padding: 0 2px;
-  height: 20px;
   left: 6px;
   top: -10px;
+  height: 20px;
+  padding: 0 2px;
+  background-color: white;
   font-size: 10px;
   line-height: 20px;
-  background-color: white;
   color: #64606a;
 }
 
 .popup {
-  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
+  display: none;
   transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
-
 }
 
 .showPopup {
@@ -254,48 +253,48 @@ transition: .3s;
   align-items: center;
 }
 .loader {
-  width: 150px;
-  height: 150px;
+  position: relative;
+  animation: rotateX 1s infinite linear;
   border: 10px solid #fff;
   border-top-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
-  background-color: transparent;
   border-radius: 50%;
-  position: relative;
-  animation: rotateX 1s infinite linear;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
 }
 
 .loader::before {
   content: "";
-  border: 10px solid #ff6939;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  background-color: transparent;
-  border-radius: 50%;
   position: absolute;
   top: 2px;
   left: 2px;
   right: 2px;
   bottom: 2px;
   animation: rotateX 0.5s infinite linear reverse;
+  border: 10px solid #ff6939;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  background-color: transparent;
 }
 
 .loader::after {
   content: "";
-  border: 10px solid #fff;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  border-bottom-color: transparent;
-  background-color: transparent;
-  border-radius: 50%;
   position: absolute;
   top: 12px;
   left: 12px;
   right: 12px;
   bottom: 12px;
   animation: rotateX 0.5s infinite linear linear;
+  border: 10px solid #fff;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  background-color: transparent;
 }
 
 @keyframes rotateX {
@@ -317,11 +316,11 @@ transition: .3s;
     height: auto;
   }
   .right {
+    align-items: start;
+    justify-content: start;
     max-width: 100%;
     max-height: 250px;
     height: 50vh;
-    align-items: start;
-    justify-content: start;
   }
   .left {
     max-width: 100%;
