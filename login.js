@@ -11,7 +11,6 @@ const popup = document.querySelector("#popup");
 const success = document.getElementById("success");
 const failed = document.getElementById("failed");
 
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (validateRegisterForm()) {
