@@ -86,7 +86,6 @@ function validateRegisterForm() {
     passwordError.classList.remove("visible");
     proceed.password = true;
   }
-
   if (!terms.checked) {
     terms.classList.add("error");
     termsError.classList.add("visible");
@@ -116,10 +115,15 @@ async function register(data) {
       body: JSON.stringify(data),
     });
     const result = await response.json();
-    handleSuccess();
+    if (result.statusCode === 403) {
+      handleFailure("Taki user istnieje, użyj innego maila");
+      return;
+    } else if (result.statusCode !== 403) {
+      handleSuccess();
+    }
   } catch (error) {
-    handleFailure();
-    console.error(error);
+    handleFailure("Coś poszło nie tak!");
+    console.error("err", error);
   }
 }
 
@@ -135,14 +139,12 @@ const handleSuccess = function () {
       window.location.href = "confirm.html";
     }, 1500);
   }, 1500);
-
 };
 
-const handleFailure = function () {
+const handleFailure = function (message) {
+  failed.innerHTML = message;
   failed.classList.add("show");
   setTimeout(() => {
     failed.classList.remove("show");
   }, 1500);
-  console.error(error);
 };
-

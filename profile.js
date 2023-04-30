@@ -23,7 +23,7 @@ async function getUser() {
     });
     const result = await response.json();
     result.forEach((item) => {
-      innerContent.innerHTML += `<li>${item.userId} ${item.firstName} ${item.lastName}</li>`;
+      innerContent.innerHTML += `<li> ${item.firstName} ${item.lastName}</li>`;
     });
   } catch (error) {
     console.log(error);
@@ -41,7 +41,6 @@ function logout() {
 }
 
 const remember = Number(localStorage.getItem("remember_user"));
-
 const rememberFlag = Boolean(remember)
 
 window.addEventListener("beforeunload", function (event) {
