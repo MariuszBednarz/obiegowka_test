@@ -114,12 +114,13 @@ async function register(data) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
-    const result = await response.json();
-    if (result.statusCode === 403) {
+    if (response.status === 200) {
+      const result = await response.json();
+      console.log(result);
+      handleSuccess();
+    } else if (response.status === 403) {
       handleFailure("Taki user istnieje, użyj innego maila");
       return;
-    } else if (result.statusCode !== 403) {
-      handleSuccess();
     }
   } catch (error) {
     handleFailure("Coś poszło nie tak!");
