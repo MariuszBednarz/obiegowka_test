@@ -1,3 +1,5 @@
+const BASE_URL = "https://ds-elp2-be.herokuapp.com/";
+
 const form = document.getElementById("form");
 const firstName = document.querySelector("#firstName");
 const lastName = document.querySelector("#lastName");
@@ -5,11 +7,17 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const terms = document.querySelector("#terms");
 
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (validateRegisterForm()) {
-   console.log("request")
+    const data = {
+      email: email.value,
+      firstName: firstName.value,
+      lastName: lastName.value,
+      password: password.value,
+    };
+    register(data);
+    localStorage.setItem("registered_email", email.value);
   } else {
     console.log("no request - validation error");
   }
@@ -91,4 +99,23 @@ function validateRegisterForm() {
     return true;
   }
   return shouldProceed(proceed);
+}
+
+async function register(data) {
+  try {
+    const response = await fetch(`${BASE_URL}auth/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (response.status === 200) {
+      const result = await response.json();
+      console.log(result);
+      window.location.href = "confirm.html";
+    } else if (response.status === 403) {
+      return;
+    }
+  } catch (error) {
+    console.error("err", error);
+  }
 }

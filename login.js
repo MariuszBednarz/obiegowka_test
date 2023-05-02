@@ -1,17 +1,46 @@
+const BASE_URL = "https://ds-elp2-be.herokuapp.com/";
+
 const form = document.getElementById("form");
 const email = document.querySelector("#email");
 const password = document.querySelector("#password");
-
 const remember = document.querySelector("#rememberCheckbox");
+
+const success = document.getElementById("success");
+const failed = document.getElementById("failed");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (validateLoginForm()) {
-    console.log("request");
+  if (validateRegisterForm()) {
+    const data = {
+      email: email.value,
+      password: password.value,
+    };
+    login(data);
   } else {
-    console.log("no request - validation error");
+    return;
   }
 });
+
+async function login(data) {
+  try {
+    const response = await fetch(`${BASE_URL}auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+    if (result.message == "Unauthorized") {
+      return;
+    } else {
+      localStorage.setItem("access_token", result.access_token);
+      window.location.href = "profile.html";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 function validateRegisterForm() {
   let proceed = {
