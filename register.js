@@ -7,6 +7,12 @@ const email = document.querySelector("#email");
 const password = document.querySelector("#password");
 const terms = document.querySelector("#terms");
 
+const main = document.querySelector("main");
+const popup = document.querySelector("#popup");
+
+const success = document.getElementById("success");
+const failed = document.getElementById("failed");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (validateRegisterForm()) {
@@ -111,11 +117,35 @@ async function register(data) {
     if (response.status === 200) {
       const result = await response.json();
       console.log(result);
-      window.location.href = "confirm.html";
+      handleSuccess();
     } else if (response.status === 403) {
+      handleFailure("Taki user istnieje, użyj innego maila");
       return;
     }
   } catch (error) {
+    handleFailure("Coś poszło nie tak!");
     console.error("err", error);
   }
 }
+
+const handleSuccess = function () {
+  main.classList.add("blur");
+  popup.classList.add("showPopup");
+  setTimeout(() => {
+    main.classList.remove("blur");
+    popup.classList.remove("showPopup");
+    success.classList.add("show");
+    setTimeout(() => {
+      success.classList.remove("show");
+      window.location.href = "confirm.html";
+    }, 1500);
+  }, 1500);
+};
+
+const handleFailure = function (message) {
+  failed.innerHTML = message;
+  failed.classList.add("show");
+  setTimeout(() => {
+    failed.classList.remove("show");
+  }, 1500);
+};

@@ -66,6 +66,102 @@ main {
   color: #64606a;
 }
 
+.tooltip {
+  position: relative;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 0px;
+  opacity: 0;
+  transition: 0.3s;
+  border-right: 20px solid #ff6939;
+  border-bottom: 20px solid rgba(0, 0, 0, 0);
+  width: 0;
+  height: 0;
+}
+
+.tooltip::after {
+  content: "Opcja niedostępna";
+  position: absolute;
+  top: -45px;
+  left: -10px;
+  opacity: 0;
+  transition: 0.3s;
+  border-radius: 7px;
+  width: 150px;
+  height: 40px;
+  background-color: #ff6939;
+  line-height: 40px;
+  color: #190f27;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+  opacity: 1;
+}
+
+.blur {
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.notification {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  width: 100%;
+  max-width: 528px;
+  height: 40px;
+  background-color: #fff;
+  line-height: 40px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.notification a {
+  display: none;
+}
+
+.success {
+  background-color: #cfdbd9;
+  color: #284642;
+}
+.success::before {
+  content: "";
+  position: absolute;
+  left: -50%;
+  display: block;
+  width: 50%;
+  height: 40px;
+  background-color: #cfdbd9;
+}
+
+.format,
+.failed {
+  background-color: #f0eeed;
+  color: #ce0737;
+}
+
+.format::before,
+.failed::before {
+  content: "";
+  position: absolute;
+  left: -50%;
+  display: block;
+  width: 50%;
+  height: 40px;
+  background-color: #f0eeed;
+}
+
 .lineWrapper {
   position: relative;
   margin-top: 12px;
@@ -141,6 +237,75 @@ main {
   color: #64606a;
 }
 
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: none;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+}
+
+.showPopup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  position: relative;
+  animation: rotateX 1s infinite linear;
+  border: 10px solid #fff;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  animation: rotateX 0.5s infinite linear reverse;
+  border: 10px solid #ff6939;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  animation: rotateX 0.5s infinite linear linear;
+  border: 10px solid #fff;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+@keyframes rotateX {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
 @media (max-width: 600px) {
   .lineWrapper > p {
     font-size: 10px;
@@ -166,6 +331,9 @@ main {
   .nameForm {
     flex-direction: column;
     gap: 0;
+  }
+  .notification {
+    font-size: 14px;
   }
 }
 

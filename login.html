@@ -12,11 +12,13 @@
     <main>
       <div class="left">
         <div class="login">
+          <div class="notification success" id="success"> Logowanie zakończone sukcesem! </div>
+          <div class="notification failed" id="failed"> Taki użytkownik nie istnieje.  <a href="index.html">Zarejestruj się tutaj</a> </div>
           <p>Zaloguj się</p>
-          <button>
+          <button class="tooltip">
             <img src="./images/png/fb.png" />logowanie przez Facebook
           </button>
-          <button>
+          <button class="tooltip">
             <img src="./images/png/insta.png" />logowanie przez Instagram
           </button>
           <div class="lineWrapper">
@@ -62,6 +64,9 @@
         </div>
       </div>
     </main>
+    <div id="popup" class="popup">
+      <span class="loader"></span>
+    </div>
     <script src="login.js"></script>
   </body>
 </html>
