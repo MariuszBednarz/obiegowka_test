@@ -114,7 +114,7 @@ async function register(data) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
-    if (response.status === 200) {
+    if (response.status === 200 || response.status === 201) {
       const result = await response.json();
       console.log(result);
       handleSuccess();
